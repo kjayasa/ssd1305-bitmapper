@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script type="application/javascript">
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        const img = {
+          height: 32,
+          width: 128,
+          data: [
+            0XAD, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
+            0X00, 0X00, 0X80, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X3F, 0X00,
+            0X00, 0X00, 0X80, 0X00, 0X00, 0X00, 0X80, 0X80, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X61, 0X80,
+            0X00, 0X00, 0X80, 0X00, 0X00, 0X00, 0X80, 0X80, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0XC0, 0XE0,
+            0X00, 0X00, 0XC0, 0X04, 0X00, 0X00, 0X80, 0X80, 0X00, 0X00, 0X00, 0X00, 0X07, 0X80, 0X80, 0X20,
+            0X00, 0X00, 0XC0, 0X00, 0X00, 0X06, 0X80, 0X80, 0X00, 0X00, 0X00, 0X00, 0X0C, 0XE0, 0XC0, 0X20,
+            0X00, 0X00, 0XC0, 0X00, 0X00, 0X03, 0XFC, 0X80, 0X00, 0X00, 0X00, 0X00, 0X08, 0X38, 0X40, 0X20,
+            0X00, 0X00, 0XC0, 0X00, 0X00, 0X00, 0X80, 0X80, 0X01, 0X84, 0X0F, 0X80, 0X08, 0X0C, 0X40, 0X20,
+            0X00, 0X00, 0XC0, 0X00, 0X00, 0X00, 0X80, 0X80, 0X01, 0XC4, 0X08, 0X80, 0X08, 0X04, 0X38, 0X20,
+            0X00, 0X00, 0XC0, 0X04, 0X00, 0X00, 0X80, 0XB8, 0X61, 0X44, 0X08, 0X80, 0X08, 0X04, 0X0E, 0X20,
+            0X00, 0X00, 0XFE, 0X04, 0X00, 0X01, 0X80, 0XEC, 0X71, 0X4C, 0X08, 0X80, 0X0C, 0X0C, 0X03, 0XE0,
+            0X00, 0X00, 0XC3, 0X04, 0X00, 0X01, 0X80, 0X84, 0X51, 0XFC, 0X08, 0X80, 0X07, 0X18, 0X00, 0X00,
+            0X00, 0X00, 0XC1, 0X04, 0X00, 0X01, 0X80, 0X84, 0X50, 0X44, 0X08, 0X80, 0X00, 0XE0, 0X00, 0X00,
+            0X00, 0X00, 0XC1, 0X06, 0X00, 0X01, 0X80, 0X84, 0X50, 0X44, 0X0C, 0X80, 0X04, 0X00, 0X1F, 0XF8,
+            0X00, 0X00, 0XC1, 0X07, 0X00, 0X03, 0XC0, 0X84, 0X50, 0XC6, 0X07, 0X80, 0X08, 0XF8, 0X10, 0X08,
+            0X00, 0X00, 0XC1, 0X05, 0X00, 0X02, 0X41, 0X84, 0X70, 0X83, 0X07, 0XF8, 0X18, 0X88, 0X10, 0X08,
+            0X00, 0X00, 0XC1, 0X0D, 0XC0, 0X02, 0X23, 0X87, 0XFF, 0X81, 0XFC, 0X00, 0X10, 0X88, 0X10, 0X08,
+            0X00, 0X07, 0XC0, 0XC8, 0X70, 0X02, 0X1E, 0X80, 0X00, 0X00, 0X00, 0X00, 0X10, 0X88, 0X1F, 0XF8,
+            0X00, 0X1C, 0XC0, 0X78, 0X00, 0X02, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X10, 0X8C, 0X00, 0X00,
+            0X00, 0X30, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X1F, 0X80, 0X00, 0X00,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X07, 0X80,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X0C, 0XF0,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X08, 0X02, 0X08, 0XD0,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X08, 0X02, 0X08, 0X90,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X0F, 0XFE, 0X0F, 0X90,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X08, 0X02, 0X00, 0XF0,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X0C, 0X02, 0X00, 0X00,
+            0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
+
+          ],
+        };
+
+        var ctx = canvas.getContext("2d");
+
+        let rows = img.height;;
+        let cols = Math.ceil(img.width / 8);
+
+        for (let row = 0; row < rows; row++) {
+          for (let col = 0; col < cols; col++) {
+            let pixData = img.data[(row * cols) + col]
+
+            for (let p = 0; p < 8; p++) {
+              if (pixData & (1 << (7 - p))) {
+                ctx.fillStyle = "rgb(255, 255, 255)";
+              } else {
+                ctx.fillStyle = "rgb(0, 0, 0)";
+              }
+              ctx.fillRect((8 * col) + p, row, 1, 1);
+
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body onload="draw();">
+  <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+
+</html>
