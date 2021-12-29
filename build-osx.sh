@@ -1,0 +1,1 @@
+dotnet publish -c release -r osx-x64  -o ./bin/osx -p:PublishReadyToRun=true --self-contained
