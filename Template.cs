@@ -6,37 +6,38 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-internal class Template
+namespace Bitmapper
 {
-    private static Regex replaceChars = new Regex("[^\\w\\d_]");
-    private readonly HandlebarsTemplate<object, object> template;
-
-    public Template(string templatePath)
+    internal class Template
     {
-        if (!File.Exists(templatePath))
+        private static Regex replaceChars = new Regex("[^\\w\\d_]");
+        private readonly HandlebarsTemplate<object, object> template;
+
+        public Template(string templatePath)
         {
-            throw new ApplicationException($"Template file missing at {templatePath}");
+            if (!File.Exists(templatePath))
+            {
+                throw new ApplicationException($"Template file missing at {templatePath}");
+            }
+
+            RegesterHelpers();
+
+            var templateText = File.ReadAllText(templatePath);
+            this.template = Handlebars.Compile(templateText);
+
         }
 
-        var templateText = File.ReadAllText(templatePath);
-        this.template = Handlebars.Compile(templateText);
-    }
-
-    public void RenderTemplate(object data, string outputFile) => File.WriteAllText(outputFile, this.template(data));
-
-    public static string IdentifierFormFilePath(string filepath)
-    {
-        var filename = replaceChars.Replace(Path.GetFileName(filepath), "_");
-
-        if (!char.IsLetter(filename, 0))
+        private void RegesterHelpers()
         {
-            filename = $"_{filename}";
+            Handlebars.RegisterHelper("to_itentifier", (writer, context, parameters) =>
+            {
+                writer.Write(replaceChars.Replace((parameters[0]?.ToString()?? "").ToLower(),"_"));
+            });
+
         }
 
-        return filename;
-
+        public void RenderTemplate(object data, string outputFile) => File.WriteAllText(outputFile, this.template(data));
 
     }
-
 }
 

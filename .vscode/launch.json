@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/bin/Debug/net6.0/bitmapper.dll",
-            "args": ["./sample/testing-128X32.bmp","./sample/testing_image.c"],
+            "args": ["font", "-n", "Arial", "-s", "8", "-o" ,"./sample/test_font.c"],
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",

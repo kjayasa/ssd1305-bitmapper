@@ -1,1 +1,0 @@
-dotnet publish -c release -r linux-x64  -o ./bin/linux -p:PublishReadyToRun=true --self-contained

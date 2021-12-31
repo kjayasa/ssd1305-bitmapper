@@ -1,7 +1,16 @@
- bitmap_image {{imageName}}={
-    .height={{height}},
-    .width={{width}},
-    .data={
-        {{data}}
-        }
+ 
+ #include "bitmap_image.h"
+ 
+ static const uint8_t bitmap_{{to_itentifier ImageName}}_data[]=
+{
+    {{Bitmap.Data}}
+};
+
+ const bitmap_image bitmap_{{to_itentifier ImageName}}=
+ {
+      
+    .height = {{Bitmap.height}},
+    .width = {{Bitmap.width}},
+    .buffer = bitmap_{{ImageName}}_data[]
+
  };

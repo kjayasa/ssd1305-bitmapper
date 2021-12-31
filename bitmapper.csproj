@@ -5,17 +5,19 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>App</StartupObject>
 	  <AssemblyVersion>0.0.5</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="templates/*" CopyToPublishDirectory="Always"  />  
+    <Content Include="templates/*" CopyToPublishDirectory="Always" />  
+    <Content Include="codepoints/*" CopyToPublishDirectory="Always" />  
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="Handlebars.Net" Version="2.0.10" />
+    <PackageReference Include="SixLabors.Fonts" Version="1.0.0-beta15" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta13" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,24 @@
- bitmap_image {{imageName}}={
-    .height={{height}},
-    .width={{width}},
-    .data={
-        {{data}}
+#include "font.h"
+
+{{#each Glyphs}}
+static const uint8_t font_{{to_itentifier ../FontName}}_{{../LineHight}}_glyph_{{this.Code}}_data[]= //{{this.Symbol}}
+{
+    {{this.Bitmap.Data}}
+};
+{{/each}} 
+
+const font font_{{to_itentifier FontName}}_{{LineHight}} =
+{
+        .line_height = {{LineHight}},
+        .glyphs = 
+        {
+            {{#each Glyphs}}
+            {
+                .height = {{this.Bitmap.height}},
+                .width = {{this.Bitmap.width}},
+                .buffer = font_{{to_itentifier ../FontName}}_{{../LineHight}}_glyph_{{this.Code}}_data
+            },
+            {{/each}}            
         }
- };
+
+};

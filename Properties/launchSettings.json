@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "bitmapper": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\personal\\ssd1305-bitmapper"
+    }
+  }
+}
