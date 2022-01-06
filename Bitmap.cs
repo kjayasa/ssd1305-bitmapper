@@ -18,9 +18,11 @@ namespace Bitmapper
             Data = "";
         }
 
-        public static Bitmap FromImage(Image<L8> image)
+        public static Bitmap FromImage(Image<L8> image,byte? tolerance)
         {
             var code = new StringBuilder();
+            byte bias=tolerance??128;
+
             for (int y = 0; y < image.Height; y++)
             {
                 var pixelRowSpan = image.GetPixelRowSpan(y);
@@ -36,14 +38,14 @@ namespace Bitmapper
                     var p8 = (x + 7) < image.Width ? x + 7 : x;
 
                     byte d = (byte)
-                        (((pixelRowSpan[p1].PackedValue > 128) ? (1 << 7) : 0)
-                       | ((pixelRowSpan[p2].PackedValue > 128) ? (1 << 6) : 0)
-                       | ((pixelRowSpan[p3].PackedValue > 128) ? (1 << 5) : 0)
-                       | ((pixelRowSpan[p4].PackedValue > 128) ? (1 << 4) : 0)
-                       | ((pixelRowSpan[p5].PackedValue > 128) ? (1 << 3) : 0)
-                       | ((pixelRowSpan[p6].PackedValue > 128) ? (1 << 2) : 0)
-                       | ((pixelRowSpan[p7].PackedValue > 128) ? (1 << 1) : 0)
-                       | ((pixelRowSpan[p8].PackedValue > 128) ? (1 << 0) : 0));
+                        (((pixelRowSpan[p1].PackedValue > bias) ? (1 << 7) : 0)
+                       | ((pixelRowSpan[p2].PackedValue > bias) ? (1 << 6) : 0)
+                       | ((pixelRowSpan[p3].PackedValue > bias) ? (1 << 5) : 0)
+                       | ((pixelRowSpan[p4].PackedValue > bias) ? (1 << 4) : 0)
+                       | ((pixelRowSpan[p5].PackedValue > bias) ? (1 << 3) : 0)
+                       | ((pixelRowSpan[p6].PackedValue > bias) ? (1 << 2) : 0)
+                       | ((pixelRowSpan[p7].PackedValue > bias) ? (1 << 1) : 0)
+                       | ((pixelRowSpan[p8].PackedValue > bias) ? (1 << 0) : 0));
 
                     code.AppendFormat("0X{0:X2},", d);
                 }
@@ -59,7 +61,7 @@ namespace Bitmapper
             };
         }
 
-        public static Bitmap FromPath(string path)
+        public static Bitmap FromPath(string path,byte? tolerance)
         {
             if (!File.Exists(path))
             {
@@ -69,7 +71,7 @@ namespace Bitmapper
 
             using (var image = Image.Load<L8>(path))
             {
-                return FromImage(image);
+                return FromImage(image,tolerance);
             }
 
         }

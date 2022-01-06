@@ -1,7 +1,7 @@
 #include "font.h"
 
 {{#each Glyphs}}
-static const uint8_t font_{{to_itentifier ../FontName}}_{{../LineHight}}_glyph_{{this.Code}}_data[]= //{{this.Symbol}}
+static const uint8_t font_{{to_itentifier ../FontName}}_{{../LineHight}}_glyph_{{this.Code}}_data[]= /* {{this.Symbol}} */
 {
     {{this.Bitmap.Data}}
 };
