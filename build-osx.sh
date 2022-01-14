@@ -1,1 +1,1 @@
-dotnet publish -c release -r osx-x64  -o ./bin/osx --self-contained
+dotnet publish -c release -r osx-x64 -p:PublishSingleFile=true -o ./bin/osx --self-contained

@@ -100,11 +100,6 @@ namespace Bitmapper
                         Code = glyph.Code,
                         Bitmap = Bitmap.FromImage(image, tolerance)
                     });
-
-                    if(glyph.Code==65){
-                        image.SaveAsBmp($"./sample/{font.Name}-{font.Size}-{glyph.Code}.bmp");
-                    }
-
                     
                 }
             }

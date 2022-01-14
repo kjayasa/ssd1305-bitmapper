@@ -136,8 +136,8 @@ namespace Bitmapper
         {
 
             var sizes = opts.Sizes.Split(',').Select(s => Convert.ToInt32(s));
-
-            var vaildExtensions = "ttf;woff;woff2".Split(";");
+            //TODO: filtes out unsupported extensions
+            //var vaildExtensions = "ttf;woff;woff2".Split(";");
             //foreach (var fontfile in Directory.EnumerateFiles(opts.FontPath).Where(p => vaildExtensions.Contains(Path.GetExtension(p))))
             foreach (var fontfile in Directory.EnumerateFiles(opts.FontPath))
             {

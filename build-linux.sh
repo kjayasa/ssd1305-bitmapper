@@ -1,1 +1,1 @@
-dotnet publish -c release -r linux-x64  -o ./build/linux --self-contained
+dotnet publish -c release -r linux-x64 -p:PublishSingleFile=true  -o ./build/linux --self-contained
